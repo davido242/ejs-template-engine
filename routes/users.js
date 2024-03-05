@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router()
 
 router.use(logger);
+router.use(loggerForAnything);
 
 router.get('/', (req, res) => {
     console.log(req.query.name, 'Yoooo');
@@ -48,6 +49,11 @@ router.param(("id"), (req, res, next, id) => {
 
 function logger (req, res, next) {
     console.log(req.originalUrl)
+    next()
+}
+
+function loggerForAnything (req, res, next) {
+    console.log("anything in between...")
     next()
 }
 

@@ -9,7 +9,8 @@ app.use(express.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
 
 app.get('/', auth, (req, res) => {
-  console.log("Request.admin:", req.admin);
+  const admin = true;
+  console.log("Request.admin:", admin);
   res.send("Home Page");
 })
 
